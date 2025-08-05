@@ -9,7 +9,7 @@ const Stack = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("flex flex-col w-fit justify-start", className)}>
+    <div className={cn("flex flex-col w-fit justify-start gap-2", className)}>
       {children}
     </div>
   );

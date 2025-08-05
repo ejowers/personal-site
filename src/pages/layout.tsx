@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
-import Hero from "@/components/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,10 +32,9 @@ export default function RootLayout({
         >
           <div className="w-full">
             <Navbar />
-            <Hero />
 
-            <div className="font-sans items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-              <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+            <div className="font-sans items-center justify-items-center min-h-screen pb-20 gap-16">
+              <main className="flex flex-col w-full gap-[32px] row-start-2 items-center sm:items-start">
                 {children}
               </main>
               <footer className="row-start-3 flex fixed bottom-0 left-0 right-0 w-full gap-4 md:gap-8 py-4 z-40 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 flex-wrap items-center justify-center">
