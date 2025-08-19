@@ -1,118 +1,70 @@
 import React from "react";
-import { Timeline } from "@/components/ui/Timeline";
+import { Timeline, TimelineEntry } from "@/components/ui/Timeline";
+import Stack from "./ui/Stack";
 
 // TODO: Add more details, there's room here. Pictures would be fun but I don't think I have any.
 // TODO: Customize color of the company names and add links to the company websites. Could use the link preview here. Could add logos, the colors are a little weird.
 
 const WorkHistory = () => {
-  const data = [
+  const data: TimelineEntry[] = [
     {
-      title: "2024",
-      content: (
-        // <div className="flex flex-row gap-2">
-        //   {/* eslint-disable-next-line @next/next/no-img-element */}
-        //   <img
-        //     src="/company-logos/marker-logo.png"
-        //     alt="Marker Learning"
-        //     className="w-12 h-12 rounded-md"
-        //   />
-        <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-bold">
-            Staff Full-stack Software Engineer
-          </h1>
-          <h2 className="text-lg font-bold text-blue-800">Marker Learning</h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Currently wearing many hats on a scrappy team of engineering,
-            product, design, and machine learning folks. Designing, prototyping,
-            developing, iterating, and collecting user feedback. This is the
-            stuff I love. Marker Learning enables school psychs to write reports
-            faster so they can spend more time actually helping kids.
-          </div>
-        </div>
-        // </div>
-      ),
+      year: "2024",
+      logo: "/company-logos/marker-logo.png",
+      url: "https://www.markerlearning.com/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Staff Full-stack Software Engineer",
+      companyName: "Marker Learning",
+      description:
+        "Currently wearing many hats on a scrappy team of engineering, product, design, and machine learning folks. Designing, prototyping, developing, iterating, and collecting user feedback. This is the stuff I love. Marker Learning enables school psychs to write reports faster so they can spend more time actually helping kids.",
     },
     {
-      title: "2022",
-      content: (
-        <div>
-          <h1 className="text-2xl font-bold">
-            Staff Frontend Software Engineer
-          </h1>
-          <h2 className="text-lg font-bold text-teal-600">Medely</h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Led, mentored, and facilitated a team of FE devs. Developed
-            technical plans for new features and participated in system
-            architecture and design. Hands on for high-priority bugs and urgent
-            features.
-          </div>
-        </div>
-      ),
+      year: "2022",
+      logo: "/company-logos/medely-logo.jpeg",
+      url: "https://www.medely.com/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Staff Frontend Software Engineer",
+      companyName: "Medely",
+      description:
+        "Led, mentored, and facilitated a team of FE devs. Developed technical plans for new features and participated in system architecture and design. Hands on for high-priority bugs and urgent features.",
     },
     {
-      title: "2021",
-      content: (
-        <div>
-          <h1 className="text-2xl font-bold">
-            Senior Software Engineer → Engineering Manager
-          </h1>
-          <h2 className="text-lg font-bold text-red-600">CarrierHQ</h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Streamlined the insurance process for small-fleet truckers,
-            increasing throughput by 25%. Mentored a small team of developers
-            and designed new system architecture. Worked closely with product
-            and business to design and plan new features.
-          </div>
-        </div>
-      ),
+      year: "2021",
+      logo: "/company-logos/carrierhq-logo.png",
+      url: "https://www.linkedin.com/company/carrierhq/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Senior Software Engineer → Engineering Manager",
+      companyName: "CarrierHQ",
+      description:
+        "Streamlined the insurance process for small-fleet truckers, increasing throughput by 25%. Mentored a small team of developers and designed new system architecture. Worked closely with product and business to design and plan new features.",
     },
     {
-      title: "2019",
-      content: (
-        <div>
-          <h1 className="text-2xl font-bold">
-            Security Operations Developer (Software Engineer)
-          </h1>
-          <h2 className="text-lg font-bold text-blue-800">BreakPoint Labs</h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Developed software to display, track, and mitigate cybersecurity
-            vulnerabilities and threats for the DoD. I am not a cybersecurity
-            expert.
-          </div>
-        </div>
-      ),
+      year: "2019",
+      logo: "/company-logos/bpl-pixel-logo.png",
+      url: "https://breakpoint-labs.com/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Security Operations Developer (Software Engineer)",
+      companyName: "BreakPoint Labs",
+      description:
+        "Developed software to display, track, and mitigate cybersecurity vulnerabilities and threats for the DoD. I am not a cybersecurity expert.",
     },
     {
-      title: "2018",
-      content: (
-        <div>
-          <h1 className="text-2xl font-bold">Software Engineer II</h1>
-          <h2 className="text-lg font-bold text-orange-500">
-            SimIS/ADL Initiative
-          </h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            No one knew what we were doing here. Moving on.
-          </div>
-        </div>
-      ),
+      year: "2018",
+      logo: "/company-logos/adl-black-logo.jpeg",
+      url: "https://www.adlnet.gov/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Software Engineer II",
+      companyName: "SimIS/ADL Initiative",
+      description: "No one knew what we were doing here. Moving on.",
     },
     {
-      title: "2014",
-      content: (
-        <div>
-          <h1 className="text-2xl font-bold">Intern → Software Engineer I</h1>
-          <h2 className="text-lg font-bold text-blue-600">
-            Space Dynamics Laboratory
-          </h2>
-          <div className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Designed and developed a satellite communications prototype (in 3
-            months!) that won the project full funding and went to space on the
-            SHARP satellite mission. Completely the suite with features for
-            mapping, scheduling, simulation, anomaly handling, and more. I was
-            also the UI/UX designer.
-          </div>
-        </div>
-      ),
+      year: "2014",
+      logo: "/company-logos/sdl-logo.jpeg",
+      url: "https://www.sdl.usu.edu/",
+      lifeEvents: ["I had a baby"],
+      jobTitle: "Intern → Software Engineer I",
+      companyName: "Space Dynamics Laboratory",
+      description:
+        "Designed and developed a satellite communications prototype (in 3 months!) that won the project full funding and went to space on the SHARP satellite mission. Completely the suite with features for mapping, scheduling, simulation, anomaly handling, and more. I was also the UI/UX designer.",
     },
   ];
   return (
@@ -126,6 +78,7 @@ const WorkHistory = () => {
         </p>
       </div>
       <Timeline data={data} />
+      <div className="h-[500px]"></div>
     </div>
   );
 };
