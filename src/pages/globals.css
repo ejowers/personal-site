@@ -127,6 +127,11 @@
   }
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .bg-wave {
   background-image: url("/blobs/footer-wave-2.svg");
   background-position: bottom center;
@@ -135,7 +140,7 @@
 }
 
 .bg-tech {
-  background-image: url("/blobs/footer-waves-layered.svg");
+  background-image: url("/blobs/wave-1.svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -155,9 +160,75 @@
   background-repeat: no-repeat;
 }
 
-.bg-hero {
-  background-image: url("/blobs/blob-1.svg");
-  background-position: left;
-  background-size: contain;
-  background-repeat: no-repeat;
+.monster-float-tentacles {
+  animation: float 8s ease-in-out infinite;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 7%;
+  right: 10%;
+  z-index: 1;
+}
+
+.monster-float-round {
+  animation: float 8s ease-in-out infinite 3s;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.6));
+  position: absolute;
+  bottom: 10%;
+  right: 25%;
+  z-index: 1;
+}
+
+.monster-float-legs {
+  animation: float 8s ease-in-out infinite 1s;
+  filter: drop-shadow(0 5px 7px rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  z-index: 1;
+}
+
+@keyframes float {
+  0% {
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.6));
+    transform: translatey(0px) rotate(2deg) scale(1);
+  }
+  25% {
+    filter: drop-shadow(0 20px 12px rgba(0, 0, 0, 0.4));
+    transform: translatey(-18px) rotate(-10deg) scale(1.05);
+  }
+  50% {
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.6));
+    transform: translatey(0px) rotate(-2deg) scale(1);
+  }
+  75% {
+    filter: drop-shadow(0 20px 12px rgba(0, 0, 0, 0.4));
+    transform: translatey(-18px) rotate(8deg) scale(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.6));
+    transform: translatey(0px) rotate(2deg) scale(1);
+  }
+}
+
+.embla {
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 70%;
+}
+.embla__viewport {
+  overflow-x: hidden;
+}
+.embla__container {
+  display: flex;
+  height: 100%;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-height: 100%;
+  min-width: 0;
+  padding-left: var(--slide-spacing);
 }
