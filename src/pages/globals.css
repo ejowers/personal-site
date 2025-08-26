@@ -41,6 +41,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-purple-main: #8c52ff;
+  --color-purple-secondary: #ac93fa;
+  --color-purple-light: #d5c7ff;
+  --color-purple-dark: #3e2179;
+  --color-purple-electric: #5e17eb;
 }
 
 :root {
@@ -119,4 +125,39 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.bg-wave {
+  background-image: url("/blobs/footer-wave-2.svg");
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-tech {
+  background-image: url("/blobs/footer-waves-layered.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-nav {
+  background-image: url("/blobs/side-waves.svg");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-contact {
+  background-image: url("/blobs/top-wave.svg");
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-hero {
+  background-image: url("/blobs/blob-1.svg");
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

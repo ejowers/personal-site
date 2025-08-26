@@ -30,11 +30,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="w-full">
+          {children}
+          {/* <div className="w-full">
             <Navbar />
 
             <div className="font-sans items-center justify-items-center min-h-screen pb-20 gap-16">
-              <main className="flex flex-col w-full gap-[32px] row-start-2 items-center sm:items-start">
+              <main className="flex flex-col w-screen h-screen gap-[32px] row-start-2 items-center sm:items-start">
                 {children}
               </main>
               <footer className="row-start-3 flex fixed bottom-0 left-0 right-0 w-full gap-4 md:gap-8 py-4 z-40 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 flex-wrap items-center justify-center">
@@ -85,7 +86,7 @@ export default function RootLayout({
                 </a>
               </footer>
             </div>
-          </div>
+          </div> */}
         </ThemeProvider>
       </body>
     </html>
