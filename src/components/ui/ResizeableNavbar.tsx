@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PersonIcon } from "@phosphor-icons/react";
+import Image from "next/image";
 
 interface ResizableNavbarProps {
   children: React.ReactNode;
@@ -246,8 +247,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/monsters/purple-monster-round-logo.png"
         alt="logo"
         width={30}
@@ -263,8 +263,7 @@ export const NavbarCustomLogo = ({ img }: { img: string }) => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={img} alt="logo" width={30} height={30} />
+      <Image src={img} alt="logo" width={30} height={30} />
     </a>
   );
 };

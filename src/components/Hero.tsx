@@ -2,6 +2,7 @@ import React from "react";
 import Group from "./ui/Group";
 import Stack from "./ui/Stack";
 import { BackgroundBeamsWithCollision } from "./ui/HeroBackground";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -20,8 +21,10 @@ const Hero = () => {
           </p>
         </Stack>
         <Stack className="w-xs justify-end hidden lg:flex">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/monsters/monster-tentacles-logo.png" alt="Code Monster" />
+          <Image
+            src="/monsters/monster-tentacles-logo.png"
+            alt="Code Monster"
+          />
         </Stack>
       </Group>
     </BackgroundBeamsWithCollision>

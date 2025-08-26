@@ -11,6 +11,7 @@ import {
 } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type LinkPreviewProps = {
   children: React.ReactNode;
@@ -128,8 +129,7 @@ const LinkPreview = ({
                   className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={isStatic ? imageSrc : src}
                     width={width}
                     height={height}
