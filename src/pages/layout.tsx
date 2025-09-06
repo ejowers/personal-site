@@ -29,7 +29,8 @@ export default function RootLayout({
               <main
                 className={`flex flex-col w-screen gap-[32px] row-start-2 items-center sm:items-start ${mainFont.className}`}
               >
-                <div className="h-30 w-full fixed top-0 left-0 bg-gray-50">
+                {/* Navbar */}
+                <div className="h-30 w-full fixed top-0 left-0 bg-gray-50 z-100">
                   <Group className="w-full h-full justify-between items-center px-8">
                     <Group className="gap-4">
                       <Image

@@ -204,7 +204,7 @@ export default function Portfolio() {
         <Group className="h-fit justify-between gap-15 xl:gap-30 flex-col lg:flex-row">
           <Stack className="gap-10 flex-4 justify-center">
             <h1>
-              Hi <span className="inline-block -scale-x-[1]">&#128075;</span>{" "}
+              Hi <span className="inline-block -scale-x-[1]">&#128075;</span>
               I&apos;m <span className="text-violet-400">Emily Jowers</span>
             </h1>
             <h2 className="text-violet-300">Nice to meet you!</h2>
