@@ -6,50 +6,67 @@ import Image from "next/image";
 import Group from "@/components/ui/Group";
 import Stack from "@/components/ui/Stack";
 import StackIcon from "tech-stack-icons";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowSquareOutIcon,
+  CalendarBlankIcon,
+  EnvelopeIcon,
+} from "@phosphor-icons/react";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 export default function Portfolio() {
-  // const testimonials = [
-  //   {
-  //     quote: [
-  //       "Emily was a standout engineering partner during our time together at Marker Learning. She consistently brought a high level of thoughtfulness, care, and technical rigor to everything she worked on. Emily brought deep expertise to our frontend stack, not only delivering tactically, but planning strategically for the long-term evolution of our frontend.",
-  //     ],
-  //     author: "Rob Wilson",
-  //     role: "Head of Engineering",
-  //     company: "Marker Learning",
-  //     skills: [
-  //       "Engineering Leadership",
-  //       "Frontend Expertise",
-  //       "Strategic Planning",
-  //     ],
-  //   },
-  //   {
-  //     quote: [
-  //       "What I appreciated most about Emily was her ability to see the bigger picture. She asked the hard questions early, often surfacing risks or gaps that could bite us. She understood when to take on risk in the short-term vs. when risk would cause too many issues in the mid- and long-term. Additionally, Emily is a product-minded engineer with an obsession for the user. I frequently leaned on Emily to surface UX challenges, and had trust that she could articulate UX improvements. This was especially crucial when we were in transition on our Design team.",
-  //     ],
-  //     author: "Rob Wilson",
-  //     role: "Head of Engineering",
-  //     company: "Marker Learning",
-  //     skills: ["Big-picture Thinking", "Risk Management", "Customer-obsessed"],
-  //   },
-  //   {
-  //     quote: [
-  //       "Beyond her technical contributions, Emily helped shape the engineering culture in positive ways. She advocated for clear standards, better collaboration, and more intentional engineering practices. In a time of transition, she was a steady and thoughtful voice. Any team would be lucky to have her.",
-  //     ],
-  //     author: "Rob Wilson",
-  //     role: "Head of Engineering",
-  //     company: "Marker Learning",
-  //     skills: ["Engineering Leadership"],
-  //   },
-  //   {
-  //     quote: [
-  //       "Emily was a fantastic team member and engineer. She regularly juggled multiple projects in a timely manner, along with mentoring junior engineers. While collaborating on several projects, she was able to identify tradeoffs in different approaches and made an outsized impact on solutions. She would make a great addition to any team.",
-  //     ],
-  //     author: "Hans Jaeger",
-  //     role: "Director of Engineering",
-  //     company: "CarrierHQ",
-  //     skills: ["Multi-project Management", "Mentoring", "Strategic Thinking"],
-  //   },
-  // ];
+  const testimonials = [
+    {
+      quote: [
+        "Emily was a standout engineering partner during our time together at Marker Learning. She consistently brought a high level of thoughtfulness, care, and technical rigor to everything she worked on. Emily brought deep expertise to our frontend stack, not only delivering tactically, but planning strategically for the long-term evolution of our frontend.",
+      ],
+      author: "Rob Wilson",
+      role: "Head of Engineering",
+      company: "Marker Learning",
+      skills: [
+        "Engineering Leadership",
+        "Frontend Expertise",
+        "Strategic Planning",
+      ],
+    },
+    {
+      quote: [
+        "What I appreciated most about Emily was her ability to see the bigger picture. She asked the hard questions early, often surfacing risks or gaps that could bite us. She understood when to take on risk in the short-term vs. when risk would cause too many issues in the mid- and long-term. Additionally, Emily is a product-minded engineer with an obsession for the user. I frequently leaned on Emily to surface UX challenges, and had trust that she could articulate UX improvements. This was especially crucial when we were in transition on our Design team.",
+      ],
+      author: "Rob Wilson",
+      role: "Head of Engineering",
+      company: "Marker Learning",
+      skills: ["Big-picture Thinking", "Risk Management", "Customer-obsessed"],
+    },
+    {
+      quote: [
+        "Beyond her technical contributions, Emily helped shape the engineering culture in positive ways. She advocated for clear standards, better collaboration, and more intentional engineering practices. In a time of transition, she was a steady and thoughtful voice. Any team would be lucky to have her.",
+      ],
+      author: "Rob Wilson",
+      role: "Head of Engineering",
+      company: "Marker Learning",
+      skills: ["Engineering Leadership"],
+    },
+    {
+      quote: [
+        "Emily was a fantastic team member and engineer. She regularly juggled multiple projects in a timely manner, along with mentoring junior engineers. While collaborating on several projects, she was able to identify tradeoffs in different approaches and made an outsized impact on solutions. She would make a great addition to any team.",
+      ],
+      author: "Hans Jaeger",
+      role: "Director of Engineering",
+      company: "CarrierHQ",
+      skills: ["Multi-project Management", "Mentoring", "Strategic Thinking"],
+    },
+  ];
 
   const techStack = [
     { name: "React", logo: "react" },
@@ -195,7 +212,7 @@ export default function Portfolio() {
   // };
 
   return (
-    <Stack className="w-full max-w-6xl mx-auto gap-30 sm:gap-50 pt-20">
+    <Stack className="w-full max-w-6xl mx-auto gap-30 sm:gap-50 py-20">
       {/* Hero */}
       <section
         id="hero"
@@ -290,29 +307,182 @@ export default function Portfolio() {
         </Stack>
       </section>
 
-      {/* About Me */}
-      <section
-        id="about"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
-
+      {/* TODO: Responsive */}
       {/* Testimonials Section */}
       <section
         id="testimonials"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+        className="w-full flex items-top justify-center"
+      >
+        <Stack className="w-full gap-10 items-center">
+          <h2>What People Are Saying</h2>
+          <Carousel className="embla__viewport w-full">
+            <Stack className="justify-center items-center w-full">
+              <div className="relative">
+                <div
+                  className="absolute left-0 top-0 w-full h-full z-10"
+                  style={{
+                    boxShadow:
+                      "inset 60px 0 30px -30px #fff, inset -60px 0 30px -30px #fff",
+                    pointerEvents: "none",
+                  }}
+                ></div>
+                <CarouselContent className="embla__container items-center pb-10">
+                  {testimonials.map((testimonial, index) => (
+                    <CarouselItem
+                      key={`${testimonial.author}-${index}`}
+                      className="embla__slide w-full lg:w-70 h-full p-10 lg:p-0"
+                    >
+                      {/* Skills Highlighted */}
+                      <div className="flex flex-wrap justify-center gap-3 mb-5 max-w-[70%] h-[90px] mx-auto items-center">
+                        {testimonial.skills.map((skill, index) => (
+                          <motion.div key={skill}>
+                            <Badge
+                              variant="secondary"
+                              className="px-4 py-2 text-sm"
+                              data-index={index}
+                              style={{
+                                animation: `fadeInUp 0.6s ease-out forwards ${
+                                  index * 30
+                                }ms`,
+                              }}
+                            >
+                              {skill}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <Card className="w-full max-w-full sm:max-w-4xl mx-auto p-8 h-max">
+                        <CardContent className="pt-6">
+                          <blockquote className="text-sm md:text-md text-center leading-relaxed mb-8 text-foreground">
+                            {testimonial.quote.map((paragraph, index) => (
+                              <p key={index} className="mb-2">
+                                {paragraph}
+                              </p>
+                            ))}
+                          </blockquote>
+                          <div className="text-center">
+                            <div className="font-semibold text-lg text-foreground">
+                              {testimonial.author}
+                            </div>
+                            <div className="text-muted-foreground">
+                              {testimonial.role} at {testimonial.company}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </div>
+              <Group className="gap-2">
+                <CarouselPrevious />
+                <CarouselNext />
+              </Group>
+            </Stack>
+          </Carousel>
+        </Stack>
+      </section>
 
-      {/* Work History Timeline */}
+      {/* TODO: define button hover colors */}
+      {/* Let's Chat! */}
       <section
-        id="work"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+        id="chat"
+        className="w-full flex items-top justify-center px-15 sm:px-30 py-40"
+      >
+        <Stack className="gap-8 items-center">
+          <h2 className="text-center">
+            Building something cool?
+            <br />
+            Let’s talk about it!
+          </h2>
+          <Button className="bg-violet-500 w-fit px-8 py-6 text-lg">
+            Book a chat &rarr;
+          </Button>
+        </Stack>
+      </section>
 
       {/* Contact Section */}
       <section
         id="contact"
         className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
+            Let&apos;s Work Together
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <Card>
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold mb-6 text-foreground flex items-center">
+                  <EnvelopeIcon className="w-6 h-6 mr-3 text-primary" />
+                  Send a Message
+                </h3>
+                <form className="space-y-6">
+                  <div>
+                    <Input placeholder="Your Name" className="w-full" />
+                  </div>
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="Your Email"
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <Input placeholder="Subject" className="w-full" />
+                  </div>
+                  <div>
+                    <Textarea
+                      placeholder="Your Message"
+                      rows={5}
+                      className="w-full"
+                    />
+                  </div>
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+
+            {/* Calendly Scheduling */}
+            <Card>
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold mb-6 text-foreground flex items-center">
+                  <CalendarBlankIcon className="w-6 h-6 mr-3 text-primary" />
+                  Schedule a Call
+                </h3>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Ready to discuss your next project or explore collaboration
+                    opportunities? Book a 30-minute call to chat about how we
+                    can work together.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                      30-minute consultation call
+                    </div>
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                      Project planning & strategy
+                    </div>
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <span className="w-2 h-2 bg-accent rounded-full mr-3"></span>
+                      Technical architecture discussion
+                    </div>
+                  </div>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-6">
+                    <ArrowSquareOutIcon className="w-4 h-4 mr-2" />
+                    Book on Calendly
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
     </Stack>
   );
 }

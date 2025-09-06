@@ -49,7 +49,7 @@ export default function RootLayout({
                       <Link href="/" scroll={false}>
                         HOME
                       </Link>
-                      <Link href="/about-me" scroll={false}>
+                      <Link href="/about" scroll={false}>
                         ABOUT
                       </Link>
                       <Link href="/animations" scroll={false}>
