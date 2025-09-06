@@ -24,6 +24,8 @@ const Hero = () => {
           <Image
             src="/monsters/monster-tentacles-logo.png"
             alt="Code Monster"
+            width={100}
+            height={100}
           />
         </Stack>
       </Group>

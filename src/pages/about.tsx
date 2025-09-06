@@ -24,28 +24,41 @@ import {
   DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
 
 export default function Portfolio() {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
   const testimonials = [
     {
       quote: [
         "Emily was a standout engineering partner during our time together at Marker Learning. She consistently brought a high level of thoughtfulness, care, and technical rigor to everything she worked on. Emily brought deep expertise to our frontend stack, not only delivering tactically, but planning strategically for the long-term evolution of our frontend.",
-        "What I appreciated most about Emily was her ability to see the bigger picture. She asked the hard questions early, often surfacing risks or gaps that could bite us. She understood when to take on risk in the short-term vs. when risk would cause too many issues in the mid- and long-term. Additionally, Emily is a product-minded engineer with an obsession for the user. I frequently leaned on Emily to surface UX challenges, and had trust that she could articulate UX improvements. This was especially crucial when we were in transition on our Design team.",
-        "Beyond her technical contributions, Emily helped shape the engineering culture in positive ways. She advocated for clear standards, better collaboration, and more intentional engineering practices. In a time of transition, she was a steady and thoughtful voice.",
-        "Any team would be lucky to have her.",
       ],
       author: "Rob Wilson",
       role: "Head of Engineering",
       company: "Marker Learning",
       skills: [
+        "Engineering Leadership",
         "Frontend Expertise",
         "Strategic Planning",
-        "Big-picture Thinking",
-        "Customer-obsessed",
-        "Engineering Leadership",
       ],
+    },
+    {
+      quote: [
+        "What I appreciated most about Emily was her ability to see the bigger picture. She asked the hard questions early, often surfacing risks or gaps that could bite us. She understood when to take on risk in the short-term vs. when risk would cause too many issues in the mid- and long-term. Additionally, Emily is a product-minded engineer with an obsession for the user. I frequently leaned on Emily to surface UX challenges, and had trust that she could articulate UX improvements. This was especially crucial when we were in transition on our Design team.",
+      ],
+      author: "Rob Wilson",
+      role: "Head of Engineering",
+      company: "Marker Learning",
+      skills: ["Big-picture Thinking", "Risk Management", "Customer-obsessed"],
+    },
+    {
+      quote: [
+        "Beyond her technical contributions, Emily helped shape the engineering culture in positive ways. She advocated for clear standards, better collaboration, and more intentional engineering practices. In a time of transition, she was a steady and thoughtful voice. Any team would be lucky to have her.",
+      ],
+      author: "Rob Wilson",
+      role: "Head of Engineering",
+      company: "Marker Learning",
+      skills: ["Engineering Leadership"],
     },
     {
       quote: [
@@ -54,21 +67,7 @@ export default function Portfolio() {
       author: "Hans Jaeger",
       role: "Director of Engineering",
       company: "CarrierHQ",
-      skills: [
-        "Multi-project Management",
-        "High Velocity",
-        "Mentoring",
-        "Strategic Thinking",
-      ],
-    },
-    {
-      quote: [
-        "Emily's adaptability and technical leadership during our platform migration was incredible. She guided the team through complex challenges while maintaining high code quality.",
-      ],
-      author: "Jennifer Park",
-      role: "Senior Developer",
-      company: "InnovateLabs",
-      skills: ["Team Leadership", "Adaptability", "System Design"],
+      skills: ["Multi-project Management", "Mentoring", "Strategic Thinking"],
     },
   ];
 
@@ -211,16 +210,6 @@ export default function Portfolio() {
     },
   ];
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
-
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -229,11 +218,11 @@ export default function Portfolio() {
     <div className="w-full">
       <section
         id="hero"
-        className="min-w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-light to-background"
+        className="min-w-full min-h-screen flex items-center justify-center bg-gradient-to-b from-violet-200 to-background"
       >
         <BackgroundBeamsWithCollision className="w-full min-h-screen">
           <div className="text-center max-w-4xl px-8 z-2">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-main via-[#ba62ff] to-purple-secondary bg-clip-text text-transparent">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-violet-400 via-[#ba62ff] to-violet-300 bg-clip-text text-transparent">
               Emily Jowers
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
@@ -247,7 +236,7 @@ export default function Portfolio() {
             </p>
             <Button
               onClick={() => scrollToSection("contact")}
-              className="mt-8 bg-purple-electric hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+              className="mt-8 bg-violet-500 hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
             >
               Let&apos;s Connect
             </Button>
@@ -296,11 +285,11 @@ export default function Portfolio() {
           About Me
         </h2> */}
         <h2 className="justify-center items-center self-center mx-auto mb-16 max-w-lg  text-center text-2xl md:text-4xl font-black text-neutral-400  dark:text-neutral-800">
-          <span className="bg-gradient-to-r from-purple-main to-[#ba62ff] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-violet-400 to-[#ba62ff] bg-clip-text text-transparent">
             Hi
           </span>{" "}
           &#128075;{" "}
-          <span className="bg-gradient-to-r from-[#ba62ff] to-purple-secondary bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#ba62ff] to-violet-300 bg-clip-text text-transparent">
             Nice to meet you!
           </span>
         </h2>
@@ -311,7 +300,7 @@ export default function Portfolio() {
                 <p className="justify-center items-center self-center mx-auto max-w-lg -translate-y-100 text-center text-sm font-black text-neutral-400 dark:text-neutral-800">
                   You found the secret message! <br />
                   Give yourself a{" "}
-                  <span className="text-xl bg-gradient-to-r from-purple-main via-[#ba62ff] to-purple-secondary bg-clip-text text-transparent">
+                  <span className="text-xl bg-gradient-to-r from-violet-400 via-[#ba62ff] to-violet-300 bg-clip-text text-transparent">
                     high 5!
                   </span>
                   <br />
@@ -319,9 +308,11 @@ export default function Portfolio() {
                 </p>
                 {images.map((item, index) => (
                   <DraggableCardBody className={item.className} key={index}>
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
+                      width={100}
+                      height={100}
                       className="pointer-events-none relative z-10 h-80 w-80 object-cover"
                     />
                     <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
@@ -335,14 +326,13 @@ export default function Portfolio() {
               Staff Frontend Engineer with 10+ years of experience transforming
               complex systems into
               <br />
-              <span className="bg-gradient-to-r from-purple-main via-[#ba62ff] to-purple-secondary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 via-[#ba62ff] to-violet-300 bg-clip-text text-transparent">
                 simple, intuitive, user-friendly
               </span>
               <br />
               experiences. I love building products that are not only{" "}
-              <span className="italic text-purple-secondary">functional</span> ,
-              but{" "}
-              <span className="bg-gradient-to-l from-purple-main via-[#ba62ff] to-purple-secondary bg-clip-text text-transparent">
+              <span className="italic text-violet-300">functional</span> , but{" "}
+              <span className="bg-gradient-to-l from-violet-400 via-[#ba62ff] to-violet-300 bg-clip-text text-transparent">
                 delightful
               </span>{" "}
               to use.
@@ -358,27 +348,6 @@ export default function Portfolio() {
             What People Say
           </h2>
 
-          {/* Skills Highlighted */}
-          <div className="flex flex-wrap justify-center gap-3 mb-5 max-w-[70%] h-[90px] mx-auto items-center">
-            {testimonials[currentTestimonial].skills.map((skill, index) => (
-              <motion.div key={skill}>
-                <Badge
-                  variant="secondary"
-                  className="px-4 py-2 text-sm "
-                  data-index={index}
-                  style={{
-                    opacity: 0,
-                    animation: `fadeInUp 0.6s ease-out forwards ${
-                      index * 30
-                    }ms`,
-                  }}
-                >
-                  {skill}
-                </Badge>
-              </motion.div>
-            ))}
-          </div>
-
           <Carousel className="embla__viewport">
             <Stack className="justify-center items-center w-full">
               <CarouselContent className="embla__container items-center">
@@ -387,6 +356,26 @@ export default function Portfolio() {
                     key={`${testimonial.author}-${index}`}
                     className="embla__slide w-full lg:w-70"
                   >
+                    {/* Skills Highlighted */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-5 max-w-[70%] h-[90px] mx-auto items-center">
+                      {testimonial.skills.map((skill, index) => (
+                        <motion.div key={skill}>
+                          <Badge
+                            variant="secondary"
+                            className="px-4 py-2 text-sm "
+                            data-index={index}
+                            style={{
+                              opacity: 0,
+                              animation: `fadeInUp 0.6s ease-out forwards ${
+                                index * 30
+                              }ms`,
+                            }}
+                          >
+                            {skill}
+                          </Badge>
+                        </motion.div>
+                      ))}
+                    </div>
                     <Card className="max-w-4xl mx-auto p-8 h-full">
                       <CardContent className="pt-6">
                         <blockquote className="text-sm md:text-md text-center leading-relaxed mb-8 text-foreground">
@@ -410,8 +399,8 @@ export default function Portfolio() {
                 ))}
               </CarouselContent>
               <Group className="gap-2">
-                <CarouselPrevious onClick={prevTestimonial} />
-                <CarouselNext onClick={nextTestimonial} />
+                <CarouselPrevious />
+                <CarouselNext />
               </Group>
             </Stack>
           </Carousel>
@@ -553,6 +542,28 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      <footer className="row-start-3 flex w-full h-60 gap-4 md:gap-8 py-5 px-10 z-40 bg-white dark:bg-neutral-950 text-neutral-100 flex-wrap items-end justify-end bg-wave">
+        {/* resume, socials, blob line */}
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedinLogoIcon size="20px" weight="fill" className="rounded-2xl" />
+          LinkedIn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GithubLogoIcon size="20px" weight="fill" className="rounded-2xl" />
+          GitHub
+        </a>
+      </footer>
 
       <style jsx>{`
         @keyframes fadeInUp {
