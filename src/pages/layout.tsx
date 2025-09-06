@@ -1,17 +1,12 @@
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
-import Image from "next/image";
+import { Outfit } from "@next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { Navbar } from "@/components/Navbar";
-import { GithubLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
+import Group from "@/components/ui/Group";
+import Image from "next/image";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mainFont = Outfit({
+  variable: "--font-main",
   subsets: ["latin"],
 });
 
@@ -22,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-clip`}
-      >
+      <body className="antialiased overflow-x-clip">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -32,41 +25,46 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="bg-background">
-            {/* <Navbar /> */}
-
-            <div className="font-sans items-center justify-items-center gap-16">
-              <main className="flex flex-col w-screen gap-[32px] row-start-2 items-center sm:items-start">
-                {children}
+            <div className="font-sans items-center justify-items-center gap-16 flex flex-col w-full min-h-screen justify-between">
+              <main
+                className={`flex flex-col w-screen gap-[32px] row-start-2 items-center sm:items-start ${mainFont.className}`}
+              >
+                <div className="h-30 w-full fixed top-0 left-0 bg-gray-50">
+                  <Group className="w-full h-full justify-between items-center px-8">
+                    <Group className="gap-4">
+                      <Image
+                        src="/monsters/purple-monster-round-logo.png"
+                        alt="Round purple monster logo"
+                        width={80}
+                        height={80}
+                        className="-rotate-10"
+                      />
+                      <p className="leading-none self-center">
+                        Code <br />
+                        <span className="font-extrabold">MONSTER</span>
+                      </p>
+                    </Group>
+                    <Group className="gap-8 font-bold text-gray-600 hidden sm:flex">
+                      <Link href="/" scroll={false}>
+                        HOME
+                      </Link>
+                      <Link href="/about-me" scroll={false}>
+                        ABOUT
+                      </Link>
+                      <Link href="/animations" scroll={false}>
+                        ANIMATIONS
+                      </Link>
+                      <Link href="/work-history" scroll={false}>
+                        WORK HISTORY
+                      </Link>
+                      <Link href="/contact" scroll={false}>
+                        CONTACT
+                      </Link>
+                    </Group>
+                  </Group>
+                </div>
+                <div className="w-full pt-30">{children}</div>
               </main>
-              <footer className="row-start-3 flex w-full h-60 gap-4 md:gap-8 py-5 px-10 z-40 bg-white dark:bg-neutral-950 text-neutral-100 flex-wrap items-end justify-end bg-wave">
-                {/* resume, socials, blob line */}
-                <a
-                  className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                  href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LinkedinLogoIcon
-                    size="20px"
-                    weight="fill"
-                    className="rounded-2xl"
-                  />
-                  LinkedIn
-                </a>
-                <a
-                  className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                  href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubLogoIcon
-                    size="20px"
-                    weight="fill"
-                    className="rounded-2xl"
-                  />
-                  GitHub
-                </a>
-              </footer>
             </div>
           </div>
         </ThemeProvider>

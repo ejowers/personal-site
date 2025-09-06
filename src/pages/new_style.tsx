@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -196,124 +196,162 @@ export default function Portfolio() {
   };
 
   return (
-    <Stack className="w-full max-w-6xl mx-auto gap-30 sm:gap-50 pt-20">
-      {/* Hero */}
-      <section
-        id="hero"
-        className="w-full flex items-top justify-center px-8 sm:px-15 md:px-30 lg:px-15 xl:px-0"
-      >
-        <Group className="h-fit justify-between gap-15 xl:gap-30 flex-col lg:flex-row">
-          <Stack className="gap-10 flex-4 justify-center">
-            <h1>
-              Hi <span className="inline-block -scale-x-[1]">&#128075;</span>{" "}
-              I&apos;m <span className="text-violet-400">Emily Jowers</span>
-            </h1>
-            <h2 className="text-violet-300">Nice to meet you!</h2>
-            <p className="leading-relaxed">
-              I&apos;m a Software Engineer and Engineering Leader who&apos;s
-              passionate about creating exceptional user experiences and
-              high-performing teams that love what they do. I bridge the gap
-              between technical excellence and strategic leadership, creating
-              solutions that drive business impact.
-            </p>
-          </Stack>
-          <Stack className="gap-8 flex-5 justify-center">
+    <div className="w-full">
+      {/* Navbar */}
+      <div className="h-30 w-full fixed top-0 left-0 bg-gray-50">
+        <Group className="w-full h-full justify-between items-center px-8">
+          <Group className="gap-4">
             <Image
-              src="/emily-pics/emily-image.png"
-              alt="Image of Emily Jowers standignn triumphantly infront of a sunbeam graphic"
-              width={2000}
-              height={2000}
-              className="w-full"
+              src="/monsters/purple-monster-round-logo.png"
+              alt="Round purple monster logo"
+              width={80}
+              height={80}
+              className="-rotate-10"
             />
-          </Stack>
+            <p className="leading-none self-center">
+              Code <br />
+              <span className="font-extrabold">MONSTER</span>
+            </p>
+          </Group>
+          <Group className="gap-8 font-bold text-gray-600 hidden sm:flex">
+            <Link href="/" scroll={false}>
+              HOME
+            </Link>
+            <Link href="/about-me" scroll={false}>
+              ABOUT
+            </Link>
+            <Link href="/animations" scroll={false}>
+              ANIMATIONS
+            </Link>
+            <Link href="/work-history" scroll={false}>
+              WORK HISTORY
+            </Link>
+            <Link href="/contact" scroll={false}>
+              CONTACT
+            </Link>
+          </Group>
         </Group>
-      </section>
+      </div>
 
-      {/* Career Stats Section */}
-      <section
-        id="career"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      >
-        <Group className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-14">
-          <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
-            <h3>10+</h3>
-            <p className="text-sm text-center">years experience</p>
-          </Stack>
-          <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
-            <h3>4</h3>
-            <p className="text-sm text-center">years leading</p>
-          </Stack>
-          <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
-            <h3>15</h3>
-            <p className="text-sm text-center">team members led</p>
-          </Stack>
-          <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
-            <h3>1M+</h3>
-            <p className="text-sm text-center">users served</p>
-          </Stack>
-        </Group>
-      </section>
+      <Stack className="w-full max-w-6xl mx-auto gap-30 sm:gap-50">
+        {/* Hero */}
+        <section
+          id="hero"
+          className="w-full flex items-top justify-center px-8 sm:px-15 md:px-30 lg:px-15 xl:px-0 pt-50"
+        >
+          <Group className="h-fit justify-between gap-15 xl:gap-30 flex-col lg:flex-row">
+            <Stack className="gap-10 flex-4 justify-center">
+              <h1>
+                Hi <span className="inline-block -scale-x-[1]">&#128075;</span>{" "}
+                I&apos;m <span className="text-violet-400">Emily Jowers</span>
+              </h1>
+              <h2 className="text-violet-300">Nice to meet you!</h2>
+              <p className="leading-relaxed">
+                I&apos;m a Software Engineer and Engineering Leader who&apos;s
+                passionate about creating exceptional user experiences and
+                high-performing teams that love what they do. I bridge the gap
+                between technical excellence and strategic leadership, creating
+                solutions that drive business impact.
+              </p>
+            </Stack>
+            <Stack className="gap-8 flex-5 justify-center">
+              <Image
+                src="/emily-pics/emily-image.png"
+                alt="Image of Emily Jowers standignn triumphantly infront of a sunbeam graphic"
+                width={2000}
+                height={2000}
+                className="w-full"
+              />
+            </Stack>
+          </Group>
+        </section>
 
-      {/* Tech Stack Section */}
-      <section
-        id="tech"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      >
-        <Stack className="justify-center items-center gap-8">
-          <h2>Favorite Technologies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            {techStack.map((tech) => (
-              <motion.div
-                key={tech.name}
-                className="group"
-                style={{
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                <div
-                  className="absolute z-10 opactiy-30 rounded-full blur-md"
+        {/* Career Stats Section */}
+        <section
+          id="career"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        >
+          <Group className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-14">
+            <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
+              <h3>10+</h3>
+              <p className="text-sm text-center">years experience</p>
+            </Stack>
+            <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
+              <h3>4</h3>
+              <p className="text-sm text-center">years leading</p>
+            </Stack>
+            <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
+              <h3>15</h3>
+              <p className="text-sm text-center">team members led</p>
+            </Stack>
+            <Stack className="w-full h-[130px] border-black border-2 justify-center items-center">
+              <h3>1M+</h3>
+              <p className="text-sm text-center">users served</p>
+            </Stack>
+          </Group>
+        </section>
+
+        {/* Tech Stack Section */}
+        <section
+          id="tech"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        >
+          <Stack className="justify-center items-center gap-8">
+            <h2>Favorite Technologies</h2>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+              {techStack.map((tech) => (
+                <motion.div
+                  key={tech.name}
+                  className="group"
                   style={{
-                    background: "radial-gradient(white #3984ff00 80%)",
-                    left: 0,
-                    top: 0,
+                    transformStyle: "preserve-3d",
                   }}
-                />
-                <div className="flex flex-col items-center p-6 bg-card rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-accent/10 font-medium hover:font-bold">
-                  <StackIcon
-                    name={tech.logo}
-                    className="w-16 h-16 mb-4 object-contain"
+                >
+                  <div
+                    className="absolute z-10 opactiy-30 rounded-full blur-md"
+                    style={{
+                      background: "radial-gradient(white #3984ff00 80%)",
+                      left: 0,
+                      top: 0,
+                    }}
                   />
-                  <span className="text-sm">{tech.name}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Stack>
-      </section>
+                  <div className="flex flex-col items-center p-6 bg-card rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 hover:bg-accent/10 font-medium hover:font-bold">
+                    <StackIcon
+                      name={tech.logo}
+                      className="w-16 h-16 mb-4 object-contain"
+                    />
+                    <span className="text-sm">{tech.name}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </Stack>
+        </section>
 
-      {/* About Me */}
-      <section
-        id="about"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+        {/* About Me */}
+        <section
+          id="about"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        ></section>
 
-      {/* Testimonials Section */}
-      <section
-        id="testimonials"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+        {/* Testimonials Section */}
+        <section
+          id="testimonials"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        ></section>
 
-      {/* Work History Timeline */}
-      <section
-        id="work"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
+        {/* Work History Timeline */}
+        <section
+          id="work"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        ></section>
 
-      {/* Contact Section */}
-      <section
-        id="contact"
-        className="w-full flex items-top justify-center px-15 sm:px-30"
-      ></section>
-    </Stack>
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="w-full flex items-top justify-center px-15 sm:px-30"
+        ></section>
+      </Stack>
+    </div>
   );
 }
