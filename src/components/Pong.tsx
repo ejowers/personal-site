@@ -7,7 +7,8 @@ const PongAnimation = () => {
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
-    const updatePosition = (event) => {
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    const updatePosition = (event: any) => {
       mouseY.set(event.clientY - 140);
     };
 
@@ -16,7 +17,7 @@ const PongAnimation = () => {
     return () => {
       window.removeEventListener("mousemove", updatePosition);
     };
-  }, []);
+  });
 
   return (
     <div className="relative w-full h-[800px] bg-black">
