@@ -5,7 +5,8 @@ export const useOutsideClick = (
   callback: (event: unknown) => void
 ) => {
   useEffect(() => {
-    const listener = (event: unknown) => {
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+    const listener = (event: any) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }

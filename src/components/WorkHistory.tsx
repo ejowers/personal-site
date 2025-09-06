@@ -1,6 +1,5 @@
 import React from "react";
 import { Timeline, TimelineEntry } from "@/components/ui/Timeline";
-import Stack from "./ui/Stack";
 
 // TODO: Add more details, there's room here. Pictures would be fun but I don't think I have any.
 // TODO: Customize color of the company names and add links to the company websites. Could use the link preview here. Could add logos, the colors are a little weird.

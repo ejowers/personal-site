@@ -77,7 +77,7 @@ const LinkPreview = ({
     <>
       {isMounted ? (
         <div className="hidden">
-          <img src={src} width={width} height={height} alt="hidden image" />
+          <Image src={src} width={width} height={height} alt="hidden image" />
         </div>
       ) : null}
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import StackIcon from "tech-stack-icons";
 import { Button } from "@/components/ui/button";

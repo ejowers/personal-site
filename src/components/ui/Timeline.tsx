@@ -1,9 +1,10 @@
 "use client";
-import { useScroll, useTransform, motion } from "motion/react";
+
 import React, { useEffect, useRef, useState } from "react";
 import LinkPreview from "./LinkPreview";
 import Group from "./Group";
 import Stack from "./Stack";
+import Image from "next/image";
 
 export type TimelineEntry = {
   year: string;
@@ -30,13 +31,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     }
   }, [ref]);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 10%", "end 60%"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start 10%", "end 60%"],
+  // });
 
-  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  // const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  // const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
     <div ref={containerRef}>
@@ -47,9 +48,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             <Group className="sticky z-40 justify-start gap-7 items-center top-40 self-start w-1/4">
               <LinkPreview url={item.url}>
                 <div className="w-[50px] h-[50px]">
-                  <img
+                  <Image
                     src={item.logo}
                     alt="company logo"
+                    width={100}
+                    height={100}
                     className="rounded-lg border-5 border-white"
                   />
                 </div>

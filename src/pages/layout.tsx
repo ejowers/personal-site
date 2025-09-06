@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Outfit } from "@next/font/google";
+import { Outfit } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Group from "@/components/ui/Group";
 import Image from "next/image";

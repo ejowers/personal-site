@@ -1,7 +1,6 @@
 "use client";
 import { useScroll, useTransform, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import { Badge } from "./badge";
 import Stack from "./Stack";
 import Image from "next/image";
 
